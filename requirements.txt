@@ -1,0 +1,8 @@
+pymongo
+pdfplumber
+requests
+Pillow
+pytesseract
+transformers
+scikit-learn
+tensorflow
