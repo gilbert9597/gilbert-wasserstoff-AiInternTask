@@ -1,0 +1,63 @@
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf12.pdf
+Time Taken: 139.34 seconds
+CPU Usage: 61.60 %
+Memory Usage: 7.00 %
+----------------------------------------
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf1.pdf
+Time Taken: 334.83 seconds
+CPU Usage: 70.50 %
+Memory Usage: 5.40 %
+----------------------------------------
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf10.pdf
+Time Taken: 324.37 seconds
+CPU Usage: 87.00 %
+Memory Usage: -5.70 %
+----------------------------------------
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf11.pdf
+Time Taken: 359.70 seconds
+CPU Usage: 32.60 %
+Memory Usage: -3.30 %
+----------------------------------------
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf14.pdf
+Time Taken: 113.31 seconds
+CPU Usage: 0.80 %
+Memory Usage: -2.50 %
+----------------------------------------
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf13.pdf
+Time Taken: 273.75 seconds
+CPU Usage: -87.90 %
+Memory Usage: -12.70 %
+----------------------------------------
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf15.pdf
+Time Taken: 415.58 seconds
+CPU Usage: -11.90 %
+Memory Usage: 6.00 %
+----------------------------------------
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf16.pdf
+Time Taken: 579.33 seconds
+CPU Usage: -40.70 %
+Memory Usage: 1.90 %
+----------------------------------------
+Performance Report
+==================================================
+File: E:\Project\PYCHARM\VS\PDF\pdf18.pdf
+Time Taken: 2943.04 seconds
+CPU Usage: -2.20 %
+Memory Usage: 9.70 %
+----------------------------------------
