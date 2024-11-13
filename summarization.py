@@ -1,37 +1,26 @@
-import os
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-# Disable OneDNN optimizations if needed
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-
-# Function to summarize text with FLAN-T5-small, custom max token length, and temperature
-def summarize_text(text_chunks, max_token_length=350, temperature=0.07):
-    # Define the FLAN-T5-small model
-    model_name = "google/flan-t5-small"
+# Function to summarize the entire text of a PDF as a single summary
+def summarize_text(text, tokenizer, model, max_token_length=350, temperature=0.07):
+    # Ensure text length does not exceed model's input size
+    max_input_length = 512  # Default max length for most transformer models
     
-    # Load the tokenizer and model
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-
-    summaries = []
-    for text_segment in text_chunks:
-        # Tokenize the input text
-        inputs = tokenizer(text_segment, return_tensors="pt", max_length=512, truncation=True)
-        
-        # Generate the summary with custom parameters
-        summary_ids = model.generate(
-            inputs.input_ids,
-            max_length=max_token_length,
-            min_length=50,
-            do_sample=True,
-            temperature=temperature,
-            length_penalty=2.0,
-            num_beams=4,
-            early_stopping=True
-        )
-
-        # Decode the summary
-        summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
-        summaries.append(summary)
+    # Tokenize the input text
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=max_input_length)
     
-    return summaries
+    # Generate the summary with custom parameters
+    summary_ids = model.generate(
+        inputs['input_ids'],  # Pass the input_ids for the model to generate summary
+        max_length=max_token_length,
+        min_length=50,
+        do_sample=True,
+        temperature=temperature,
+        length_penalty=2.0,
+        num_beams=4,
+        early_stopping=True
+    )
+
+    # Decode the summary
+    summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+    print(f"Summary: {summary}")
+    return summary

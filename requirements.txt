@@ -6,3 +6,4 @@ pytesseract
 transformers
 scikit-learn
 tensorflow
+nltk

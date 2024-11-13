@@ -2,14 +2,17 @@ import pdfplumber
 import pytesseract
 from PIL import Image
 
-# Function to parse the PDF
+# Function to parse the PDF file and extract text chunks
 def parse_pdf(file_path, chunk_size=500, overlap=100):
     try:
         # Open the PDF file
+        c = 0
         with pdfplumber.open(file_path) as pdf:
             text = ''
             for page in pdf.pages:
                 page_text = page.extract_text()
+                print("page ", str(c))
+                c += 1
                 if page_text:
                     text += page_text
                 else:
@@ -31,9 +34,8 @@ def parse_pdf(file_path, chunk_size=500, overlap=100):
         print(f"An error occurred while parsing the PDF: {e}")
         return []
 
-# Function to chunk the text into smaller pieces with overlap
+# Function to chunk text into smaller pieces with overlap
 def chunk_text(text, chunk_size, overlap):
-    # Split text into sentences
     sentences = text.split('. ')
     
     # Create chunks with sliding window
@@ -45,8 +47,9 @@ def chunk_text(text, chunk_size, overlap):
         else:
             chunks.append(current_chunk.strip())
             # Start the next chunk with overlap
-            current_chunk = '. '.join(sentences[max(i - overlap, 0):i + 1]) + '. '
-
+            current_chunk = '. '.join(sentences[max(i - overlap, 0):i]) + '. '
+    
+    # Add any remaining text as a final chunk
     if current_chunk:
         chunks.append(current_chunk.strip())
     
